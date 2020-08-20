@@ -17,6 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "allowedCommonJsDependencies": ["keycloak-js", "js-sha256"],
             "outputPath": "dist/ng-keycloak-test",
             "index": "src/index.html",
             "main": "src/main.ts",

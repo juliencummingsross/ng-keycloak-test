@@ -1,10 +1,23 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './auth.guard';
+import { DefaultComponent } from './default/default.component';
+import { ProtectedComponent } from './protected/protected.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {
+    path: 'protected',
+    component: ProtectedComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: '**',
+    component: DefaultComponent,
+  },
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
