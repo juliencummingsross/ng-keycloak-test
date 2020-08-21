@@ -7,11 +7,5 @@ import { KeycloakService } from 'keycloak-angular';
   styleUrls: ['./protected.component.scss'],
 })
 export class ProtectedComponent implements OnInit {
-  constructor(private keyCloakService: KeycloakService) {}
-
   ngOnInit(): void {}
-
-  logout(): void {
-    this.keyCloakService.logout(window.location.origin);
-  }
 }
