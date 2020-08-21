@@ -9,6 +9,7 @@ const routes: Routes = [
     path: 'protected',
     component: ProtectedComponent,
     canActivate: [AuthGuard],
+    data: { roles: ['myclientrole'] },
   },
   {
     path: '**',
