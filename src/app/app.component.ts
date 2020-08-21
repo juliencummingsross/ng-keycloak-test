@@ -20,7 +20,7 @@ export class AppComponent {
   }
 
   async test(): Promise<void> {
-    if ((await this.keyCloakService.isLoggedIn()) === false) {
+    if ((await this.keyCloakService.isLoggedIn()) === true) {
       this.http.get('http://localhost:3000/protected').subscribe(
         (result) => console.dir(result),
         (error) => console.log(error.error)
