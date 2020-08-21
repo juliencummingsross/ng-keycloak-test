@@ -37,6 +37,13 @@ export class AuthGuard extends KeycloakAuthGuard {
     }
 
     // Allow the user to proceed if all the required roles are present.
-    return requiredRoles.every((role) => this.roles.includes(role));
+    const result = requiredRoles.every((role) => this.roles.includes(role));
+    if (result === false) {
+      // TODO: Access denied feedback!
+      if (this.router.routerState.snapshot.url === '') {
+        this.router.navigate(['/']);
+      }
+    }
+    return result;
   }
 }
